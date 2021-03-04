@@ -412,7 +412,7 @@ class QuantumError(BaseOperator, TolerancesMixin):
             name = inst.label if isinstance(inst, UnitaryGate) and inst.label else inst.name
             dic = {'name': name,
                    'qubits': [q.index for q in qargs]}
-            if name in {'kraus', 'unitary'}:
+            if name in {'kraus', 'unitary', 'pauli'}:
                 dic['params'] = inst.params
             ret.append(dic)
         return ret
